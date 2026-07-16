@@ -1,0 +1,34 @@
+{
+  "name": "uptimize-appservice-skills",
+  "version": "1.0.0",
+
+  "copy": [
+    {
+      "from": ".claude",
+      "to": ".claude"
+    }
+  ],
+
+  "agents": {
+    "claude": {
+      "post-copy": [
+        {
+          "chmod": "+x",
+          "target": ".claude/hooks/validate-az.sh"
+        },
+        {
+          "merge": ".claude/settings.json"
+        }
+      ]
+    },
+    "opencode": {
+      "copy": [
+        {
+          "from": ".opencode/plugins/validate-az.ts",
+          "to": ".opencode/plugins/validate-az.ts"
+        }
+      ]
+    }
+  }
+}
+ 
